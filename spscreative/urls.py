@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from accounts import urls as urls_accounts
 from home.views import index
+from home.views import about
 from django.views import static
 from .settings import MEDIA_ROOT
 
@@ -24,6 +25,8 @@ from .settings import MEDIA_ROOT
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name='home'),
+    url(r'^about', about, name='about'),
+    url(r'^contact', about, name='contact'),
     url(r'^accounts/', include(urls_accounts)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_route': MEDIA_ROOT}),
 ]

@@ -33,10 +33,9 @@
                 <ul class="nav navbar-nav navbar-center">
                     <li><a href="{% url 'home' %}">Home</a></li>
                     <li><a href="#">Services</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Clients</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
                     <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'logout' %}">Log out</a></li>
                     <li><a href="{% url 'profile' %}">Profile</a></li>
