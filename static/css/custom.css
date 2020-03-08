@@ -1,0 +1,51 @@
+/* Typography */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Roboto+Mono:wght@500;700&display=swap');
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+
+}
+body,html{
+font-family: 'Roboto Mono', monospace;
+font-weight: 500;
+}
+.navbar-default .navbar-nav > li > a{ font-family: 'Montserrat', sans-serif;}
+.link-inverse{color:#fff;}
+a{color:#E5097F; transition: 0.2s ease-in-out;}
+a:hover,a:focus,a.active{color:#730440;text-decoration:none;}
+ul{list-style-type: none; padding-left:0;}
+.fa{padding:0 5px;}
+/* Sticky footer styles */
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+  
+footer {
+ 
+  width: 100%;
+  padding:25px 0 10px 0;
+  background-color: #1B1332;
+  color:#fff;
+}
+
+
+ 
+/* slider */
+.slide-index{ background-image: url("../images/slider-background.jpg"); background-repeat:no-repeat; background-size: cover;}
+.bx-wrapper{margin-bottom:0;}
+.bx-wrapper .bx-pager{position:absolute; bottom:15px;}
+
+
+/* Containers*/
+.container-slide{text-align: center; color:#fff;padding:5.2rem;}
+.container-nav{display:flex; }
+
+#navbar{margin:auto;}

@@ -7,17 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SPS Design Services</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+    <script src="https://use.fontawesome.com/f099279324.js"></script>
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     {% block head_js %}
     {% endblock head_js %}
 </head>
 <body>
-
+        <div class="slide-index">
+            <div class="container container-slide" >
+                <h1>SPS Design Services</h1>
+                <p class="lead">Welcome to the design hub. Register or login to get started.</p>
+            </div>
+        </div>
     <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
+        <div class="container container-nav">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
@@ -25,10 +28,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">SPS Design Services</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-center">
+                    <li><a href="{% url 'home' %}">Home</a></li>
                     <li><a href="#">Services</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Clients</a></li>
@@ -38,7 +41,7 @@
                     <li><a href="{% url 'logout' %}">Log out</a></li>
                     <li><a href="{% url 'profile' %}">Profile</a></li>
                     <li>
-                        <a href="{% url 'view_cart' %}">
+                        <a href="#">
                             <i class="fa fa-shipping-cart"></i>Cart
                             {% if product_count > 0 %}
                             <label class="badge badge-warning">{{ product_count }}</label>
@@ -54,25 +57,33 @@
             </div>
         </div>
     </nav>
+    <div class="container">
+    {% block content %} 
     
-        {% block content %} {% endblock %}
+    {% endblock %}
+    </div>
     <footer>
         <div class="container">
-        <ul>
+        <ul class="link-inverse">
             {% if user.is_authenticated %}
-            <li><a href="{% url 'logout' %}">Log out</a></li>
-            <li><a href="{% url 'profile' %}">Profile</a></li>
+            <li><a class="link-inverse" href="{% url 'logout' %}"><span class="fa fa-sign-out" aria-hidden="true"></span>Log out</a></li>
+            <li><a class="link-inverse" href="{% url 'profile' %}"><span class="fa fa-user-circle-o" aria-hidden="true"></span>Profile</a></li>
             {%  else %}
-            <li><a href="{% url 'register' %}">Register</a></li>
-            <li><a href="{% url 'login' %}">Log In</a></li> 
+            <li><a class="link-inverse" href="{% url 'register' %}"><span class="fa fa-pencil-square-o" aria-hidden="true"></span>Register</a></li>
+            <li><a class="link-inverse" href="{% url 'login' %}"><span class="fa fa-sign-in" aria-hidden="true"></span>Log In</a></li> 
             {% endif %}
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Services</a></li>
-                    <li><a href="#">About</a></li>
+            <li><a class="link-inverse" href="#"><span class="fa fa-envelope-open" aria-hidden="true"></span>Contact</a></li>
+            <li><a class="link-inverse" href="#"><span class="fa fa-paper-plane" aria-hidden="true"></span>Services</a></li>
+                    <li><a class="link-inverse" href="#"><span class="fa fa-sign-in" aria-hidden="true"></span>About</a></li>
         </ul>
-        <p>&copy; Sam Sedgeman 2020</p>
-         <a href="https://github.com/sps992">Github</a>
+        <p class="pull-left">&copy; Sam Sedgeman 2020</p>
+        
+         <a class="link-inverse pull-right" href="https://github.com/sps992">Github</a>
+        
         </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </body>
 </html>
