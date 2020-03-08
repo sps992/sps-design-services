@@ -3,6 +3,7 @@
 ## Introduction &amp; Fulfilment
 This project I am combining all the knowledge I have gained from this course to build a full stack web application using th Django framework. I have been taskd with creating a platform where I can sell my freelance services. I have worked as a freelance wewb designer before the course so, I have reused some content from my own website and will model it on the same branding. This will hopefully save the amount of time I need to put in coming up with design guidelines for this course as I can follow very closely to my current style guide. My goal for this project is to produce an Django app that can be used to sell my services as a freelance designer. I need to have a form which the user will fill out to describe their needs( type, size, description, content etc), which when submitted will produce an automatic quote and then a gateway for them to pay through. I need to createthe abillity to log in to an adminarea to view all orders and upload completed work available for the customer.
 
+[![Build Status](https://travis-ci.com/sps992/sps-design-services.svg?branch=master)](https://travis-ci.com/sps992/sps-design-services)
 
 [Live Heroku link here](#/ "Live Heroku link here" )
 
