@@ -6,17 +6,12 @@ from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 
 
-# Create your views here.
-def index(request):
-    """A view that displays the index page"""
-    return render(request, "index.html")
-
 
 def logout(request):
     """A view that logs the user out and redirects back to the index page"""
     auth.logout(request)
     messages.success(request, 'You have successfully logged out')
-    return redirect(reverse('index'))
+    return redirect(reverse('home'))
 
 
 def login(request):
@@ -24,7 +19,7 @@ def login(request):
     if request.method == 'POST':
         user_form = UserLoginForm(request.POST)
         if user_form.is_valid():
-            user = auth.authenticate(request.POST['username_or_email'],
+            user = auth.authenticate(request.POST['username'],
                                      password=request.POST['password'])
 
             if user:
@@ -35,7 +30,7 @@ def login(request):
                     next = request.GET['next']
                     return HttpResponseRedirect(next)
                 else:
-                    return redirect(reverse('index'))
+                    return redirect(reverse('home'))
             else:
                 user_form.add_error(None, "Your username or password are incorrect")
     else:
