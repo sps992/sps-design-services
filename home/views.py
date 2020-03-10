@@ -12,6 +12,6 @@ def about(request):
 
 
 def contact(request):
-    """A view that display the about page"""
-    return render(request, "about.html")
+    """A view that display the contact page"""
+    return render(request, "contact.html")
     
