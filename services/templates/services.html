@@ -2,22 +2,23 @@
 {% block content %}
 <div class="container">
 <div class="row row-flex">
-{% for service in services %}
 <div class="row">
+{% for service in services %}
+
         <div class="col-md-4">
             <div class="card">
                 <img src="{{ MEDIA_URL }}{{ service.image }}" width="150" height="150">
                 <h3>{{ service.name }}</h3>
-                <p>{{ service.description }}</p>
                 <p>&pound;{{ service.base_price }}</p>
+                <a href="{% url 'service_detail_view' service.id %}">Learn More</a>
             </div>
         </div>
 
+
 {% endfor %}
-
+</div>
 </div>
 
-</div>
 </div>
 
 {% endblock %}

@@ -16,9 +16,11 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from accounts import urls as urls_accounts
-from home.views import index, about, contact
-from services.views import all_services
+from services import urls as urls_services
+from cart import urls as urls_cart
 from accounts.views import logout
+from home.views import index, about, contact
+from services.views import all_services, service_detail_view
 from django.views import static
 from .settings import MEDIA_ROOT
 
@@ -29,7 +31,8 @@ urlpatterns = [
     url(r'^$', index, name='home'),
     url(r'^about', about, name='about'),
     url(r'^contact', contact, name='contact'),
-    url(r'^services/$', all_services, name='services'),
+    url(r'^services/', include(urls_services)),
     url(r'^accounts/', include(urls_accounts)),
+    url(r'^cart/', include(urls_cart)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
 ]
