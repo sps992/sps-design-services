@@ -40,8 +40,14 @@ class Service(models.Model):
     name = models.CharField(max_length=254, default='')
     image = models.ImageField(upload_to='images')
     base_price = models.DecimalField(max_digits=6, decimal_places=2)
-    details = models.ForeignKey(ServiceDetails, on_delete=models.CASCADE)
-    category = models.ForeignKey(ServiceCategory, on_delete=models.CASCADE)
-
+    category = models.ForeignKey(ServiceCategory,
+                                 null=True,
+                                 blank=True,
+                                 on_delete=models.SET_NULL)
+    details = models.ForeignKey(ServiceDetails,
+                                null=True,
+                                blank=True,
+                                on_delete=models.SET_NULL)
+                                
     def __str__(self):
         return self.name

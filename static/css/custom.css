@@ -54,7 +54,7 @@ footer {
 .container-nav{display:flex; }
 .container-parallax{width:100%; background-image:url("../images/branded-background.png"); background-position:50% 108px; background-repeat: no-repeat; background-size: cover; background-attachment: fixed;}
 #services-container{width:100%; background-image:url("../images/branded-background.png"); background-position:50% 108px; background-repeat: no-repeat; background-size: cover; background-attachment: fixed;}
-.avatar-container{background-image:url("../images/web_avatar.svg");background-repeat: no-repeat; background-size: cover;}
+.avatar-container{background-image:url("../images/web_avatar.svg");background-repeat: no-repeat; background-size: contain; min-height:300px;}
 
 #navbar{margin:auto;}
 
