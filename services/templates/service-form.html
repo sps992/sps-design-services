@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+<div class="col-12">
+<a class ="pull-left" href="{% url 'services' %}">Back</a>
+</div>
+<h1>Our Plans</h1>  
+    {% for service in services %}
+    <div class="col-md-4">
+    <div class="card">
+            <h3>{{ service.name }}</h3>
+            <p class="lead">{{ service.category }}</p>
+            <p>{{ service.details }}</p>
+            <form  method="POST" action="{% url 'add_to_cart' service.id %}">
+                {% csrf_token %}
+                <div class="form-group">
+                <p>Price</p>
+                <p>&pound;{{ service.base_price }}</p>
+                </div>
+                 <div class="input-group">
+                        <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity" required>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+            </div>
+            </div>
+            {% endfor %}
+</div>
+{% endblock %}

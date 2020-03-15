@@ -51,11 +51,11 @@ footer {
 
 /* Containers*/
 .container-slide{text-align: center; color:#fff;padding:5.2rem;}
-.container-nav{display:flex; }
+.container-nav{display:flex; padding:10px; }
 .container-parallax{width:100%; background-image:url("../images/branded-background.png"); background-position:50% 108px; background-repeat: no-repeat; background-size: cover; background-attachment: fixed;}
 #services-container{width:100%; background-image:url("../images/branded-background.png"); background-position:50% 108px; background-repeat: no-repeat; background-size: cover; background-attachment: fixed;}
 .avatar-container{background-image:url("../images/web_avatar.svg");background-repeat: no-repeat; background-size: contain; min-height:300px;}
-
+.cart-service-icon{width:300px; height:300px; background-size:contain; background-repeat: no-repeat;}
 #navbar{margin:auto;}
 
 .card{padding:20px;border: 1px solid #e2e2e266;border-radius: 3px;}

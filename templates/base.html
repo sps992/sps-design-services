@@ -20,7 +20,7 @@
             </div>
         </div>
     <nav class="navbar navbar-default navbar-static-top">
-        <div class="container container-nav">
+        <div class="container-nav">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
@@ -40,7 +40,7 @@
                     <li><a href="{% url 'logout' %}">Log out</a></li>
                     <li><a href="{% url 'profile' %}">Profile</a></li>
                     <li>
-                        <a href="#">
+                        <a href="{% url 'view_cart' %}">
                             <i class="fa fa-shipping-cart"></i>Cart
                             {% if product_count > 0 %}
                             <label class="badge badge-warning">{{ product_count }}</label>

@@ -28,8 +28,6 @@ class ServiceDetails(models.Model):
     delivery_time = models.IntegerField(choices=delivery_time_choices, default=20)
     ammendments = models.IntegerField(choices=amendment_choices, default=3)
     description = models.TextField(default='')
-    #service = models.ForeignKey(Service, on_delete=models.CASCADE)
-    #category = models.ForeignKey(ServiceCategory, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
