@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+
+{% block head_js %}
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+    //<![CDATA[
+        Stripe.publishableKey = '{{ publishable }}';
+    //]]>
+</script>
+<script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% for item in cart_items %}
+        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-12 card">
+            <div class="panel-body">
+            <div class="row">
+                <div class="service-cart-image col-sm-12 col-md-6" style="background-image: url('{{ MEDIA_URL }}{{ item.service.image }}');"></div>
+
+                <div class="caption col-sm-12 col-md-6">
+                    <h3>{{ item.service.name }}</h3>
+                    <p class="lead">{{ item.service.category }}</p>
+                    <p>Details: {{ item.service.details }}</p>
+                    <p>Quantity: {{ item.quantity }}</p>
+                    <p>&pound;{{ item.service.base_price }}</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<div class="container">
+<div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-12 display panel panel-default">
+<div class="panel-body">
+    <p class="lead">Total</p>
+    <p  class="lead">&pound;{{ total }}</p>
+</div>
+</div>
+
+<form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
+    <legend>Your Payment Details</legend>
+
+    <div id="credit-card-errors" style="display: none;">
+        <div id="alert-message block-message error" id="stripe-error-message"></div>
+    </div>
+
+    <div class="form-group col-sm-12 col-md-6">
+        <div class=" panel panel-default">
+            <div class="panel-body">
+            {{ order_form | as_bootstrap }}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group col-sm-12 col-md-6">
+        <div class=" panel panel-default">
+            <div class="panel-body">
+            {{ payment_form | as_bootstrap }}
+            </div>
+        </div>
+    </div>
+
+    {% csrf_token %}
+    <div class="form-group col-md-12">
+        <input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+    </div>
+</form>
+</div>
+{% endblock %}
