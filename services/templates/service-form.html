@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
+<a class="btn btn-default" href="{% url 'services' %}">Back to services >></a>
+
 <div class="col-12">
-<a class ="pull-left" href="{% url 'services' %}">Back</a>
-</div>
-<h1>Our Plans</h1> 
+<h1 >Our Plans</h1> 
 <p class="lead">Please login or register an account to order.</p>
     {% for service in services %}
     <div class="col-md-4">
@@ -26,5 +26,6 @@
             </div>
             </div>
             {% endfor %}
+</div>
 </div>
 {% endblock %}
