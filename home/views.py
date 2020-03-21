@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.contrib import messages
+from home.forms import ContactForm
 
 
 def index(request):
@@ -11,7 +13,15 @@ def about(request):
     return render(request, "about.html")
 
 
+def portfolio(request):
+    """A view that displays a portfolio grid of my work."""
+    return render(request, "portfolio.html")
+
+
 def contact(request):
-    """A view that display the contact page"""
-    return render(request, "contact.html")
-    
+    """A view that display the contact page and POST form if filled out"""
+    contact_class = ContactForm
+
+    return render(request, 'contact.html', {
+        'contact_form': contact_class,
+    })
