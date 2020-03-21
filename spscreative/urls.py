@@ -20,7 +20,7 @@ from services import urls as urls_services
 from cart import urls as urls_cart
 from checkout import urls as urls_checkout
 from accounts.views import logout
-from home.views import index, about, contact
+from home.views import index, about, contact, portfolio
 from services.views import all_services, service_detail_view
 from django.views import static
 from .settings import MEDIA_ROOT
@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^$', index, name='home'),
     url(r'^about', about, name='about'),
     url(r'^contact', contact, name='contact'),
+    url(r'^portfolio', portfolio, name='portfolio'),
     url(r'^services/', include(urls_services)),
     url(r'^accounts/', include(urls_accounts)),
     url(r'^cart/', include(urls_cart)),

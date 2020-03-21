@@ -22,17 +22,7 @@ a{color:#E5097F; transition: 0.2s ease-in-out;}
 a:hover,a:focus,a.active{color:#730440;text-decoration:none;}
 ul{list-style-type: none; padding-left:0;}
 .fa{padding:0 5px;}
-/* Sticky footer styles */
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
 
-  main {
-    flex: 1 0 auto;
-  }
-  
 footer {
  
   width: 100%;
@@ -51,7 +41,8 @@ footer {
 
 /* Containers*/
 .container-slide{text-align: center; color:#fff;padding:5.2rem;}
-.container-nav{display:flex; padding:10px; }
+.content-container{min-height:50vh;}
+.container-nav{display:flex; padding:10px;}
 .container-parallax{width:100%; background-image:url("../images/branded-background.png"); background-position:50% 108px; background-repeat: no-repeat; background-size: cover; background-attachment: fixed;}
 #services-container{width:100%; background-image:url("../images/branded-background.png"); background-position:50% 108px; background-repeat: no-repeat; background-size: cover; background-attachment: fixed;}
 .avatar-container{background-image:url("../images/web_avatar.svg");background-repeat: no-repeat; background-size: contain; min-height:300px;}
