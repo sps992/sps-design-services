@@ -9,7 +9,7 @@
             <div class="card">
                 <img src="{{ MEDIA_URL }}{{ service.image }}" width="150" height="150">
                 <h3>{{ service.name }}</h3>
-                <p>&pound;{{ service.base_price }}</p>
+                <p>Plans from <strong>&pound;{{ service.base_price }}</strong></p>
                 <a class="btn btn-default" href="{% url 'service_detail_view' service.id %}">Learn More</a>
             </div>
         </div>

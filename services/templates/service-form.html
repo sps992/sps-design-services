@@ -1,31 +1,51 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <div class="container">
-<a class="btn btn-default" href="{% url 'services' %}">Back to services >></a>
+	<a class="btn btn-default" href="{% url 'services' %}">Back to services >></a>
 
-<div class="col-12">
-<h1 >Our Plans</h1> 
-<p class="lead">Please login or register an account to order.</p>
-    {% for service in services %}
-    <div class="col-md-4">
-    <div class="card">
-            <h3>{{ service.name }}</h3>
-            <p class="lead">{{ service.category }}</p>
-            <p>{{ service.details }}</p>
-            <form  method="POST" action="{% url 'add_to_cart' service.id %}">
-                {% csrf_token %}
-                <div class="form-group">
-                <p>Price</p>
-                <p>&pound;{{ service.base_price }}</p>
-                </div>
-                 <div class="input-group">
+	<div class="col-12">
+		<h1>Our Plans</h1>
+		<p class="lead">Please login or register an account to order.</p>
+
+		<ul class="nav nav-tabs">
+			{% for service in services %}
+            <!-- https://stackoverflow.com/a/6170306 -->
+			{% if forloop.first %} <!-- add 'class="active"' if first item -->
+			<li class="active"><a data-toggle="tab" href="#{{ service.category }}">{{ service.category }}</a></li>
+			{% else %} <!-- otherwise no li class -->
+			<li><a data-toggle="tab" href="#{{ service.category }}">{{ service.category }}</a></li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+
+		<div class="tab-content">
+			{% for service in services %}
+            <!-- https://stackoverflow.com/a/6170306 -->
+			{% if forloop.first %} <!-- add 'class="in active"' if first item -->
+			<div id="{{ service.category }}" class="tab-pane fade in active">
+            {% else %} <!-- otherwise normal classes only -->
+            <div id="{{ service.category }}" class="tab-pane fade">
+            {% endif %}
+                <img src="{{ MEDIA_URL }}{{ service.category.plan_image }}" alt="plan-image">
+                <h3>{{ service.name }}</h3>
+                <p>{{ service.details.contents }}</p>
+                <p>{{ service.details.delivery_time }}</p>
+                <p>{{ service.details.amendments }}</p>
+                <p>{{ service.details.description }}</p>
+                <form method="POST" action="{% url 'add_to_cart' service.id %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <p><strong>Price &pound;{{ service.base_price }}</strong></p>
+                    </div>
+                    <div class="input-group">
                         <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity" required>
                         <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </form>
-            </div>
+                    </div>
+                </form>
             </div>
             {% endfor %}
-</div>
+        </div>
+    </div>
 </div>
 {% endblock %}
