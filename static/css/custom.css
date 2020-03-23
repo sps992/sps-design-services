@@ -41,7 +41,7 @@ footer {
 
 /* Containers*/
 .container-slide{text-align: center; color:#fff;padding:5.2rem;}
-.content-container{min-height:50vh;}
+.content-container{min-height:80vh;}
 .container-nav{display:flex; padding:10px;}
 .container-parallax{width:100%; background-image:url("../images/branded-background.png"); background-position:50% 108px; background-repeat: no-repeat; background-size: cover; background-attachment: fixed;}
 #services-container{width:100%; background-image:url("../images/branded-background.png"); background-position:50% 108px; background-repeat: no-repeat; background-size: cover; background-attachment: fixed;}
