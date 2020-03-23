@@ -8,8 +8,8 @@ h1,h2,h3,h4,h5,h6{
 
 }
 
-.secondary-page-title{padding:4rem;}
-.tertiary-page-title{padding:3rem;}
+.secondary-page-title{padding:4rem 0;}
+.tertiary-page-title{padding:3rem 0;}
 body,html{
 font-family: 'Roboto Mono', monospace;
 font-weight: 500;
