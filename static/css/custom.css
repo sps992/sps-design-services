@@ -7,13 +7,22 @@ h1,h2,h3,h4,h5,h6{
     text-transform: uppercase;
 
 }
+body {
+  opacity: 1;
+  transition: 0.7s opacity;
+}
 
+body.fade {
+    opacity: 0;
+    transition: none;
+}
 .secondary-page-title{padding:4rem 0;}
 .tertiary-page-title{padding:3rem 0;}
 body,html{
 font-family: 'Roboto Mono', monospace;
 font-weight: 500;
 }
+.hide-message{display:none;}
 .text-shadow {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);}
 .navbar-default .navbar-nav > li > a{ font-family: 'Montserrat', sans-serif;}
