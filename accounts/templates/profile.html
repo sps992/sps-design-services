@@ -10,8 +10,8 @@
      <p name="email-address">{{ user.email }}</p>
      <h3>Account Actions</h3>
       <a href="{% url 'password_reset' %}" class="btn btn-default">Reset Password</a>
-      <a href="mailto:support@samsedgeman.co.uk" class="btn btn-primary">Customer Support</a>
-       <a href="mailto:admin@samsedgeman.co.uk" class="btn btn-danger">DELETE ACCOUNT</a>
+      <a href="mailto:support@samsedgeman.co.uk?subject=Customer%20Support%20Enquiry" class="btn btn-primary">Customer Support</a>
+       <a href="mailto:admin@samsedgeman.co.uk?subject=Account%20Removal%20Request" class="btn btn-danger">DELETE ACCOUNT</a>
     </div>
     <div class="col-md-6">
     <h3 class="tertiary-page-title">Your Active Services</h3>
