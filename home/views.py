@@ -1,6 +1,7 @@
-from django.shortcuts import render
-from django.contrib import messages
-from home.forms import ContactForm
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
+from .forms import ContactForm
 
 
 def index(request):
@@ -19,9 +20,8 @@ def portfolio(request):
 
 
 def contact(request):
-    """A view that display the contact page and POST form if filled out"""
-    contact_class = ContactForm
+    """A view that displays my contact page."""
+    return render(request, "contact.html")
 
-    return render(request, 'contact.html', {
-        'contact_form': contact_class,
-    })
+
+

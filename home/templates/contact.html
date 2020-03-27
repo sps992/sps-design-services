@@ -6,10 +6,43 @@
 <p>For a bespoke project built around you fill out the contact form below with your contact and project details and I will get back to you as soon as I can!</p>
 </div>
 <div class="container">
-<form method="POST">
-    {% csrf_token %}
-    {{ contact_form | as_bootstrap }}
-    <button type="submit" class="btn btn-default">Submit</button>
-</form>
+<div id="form-message" class="hide-message">
+<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">X</span></button>
+<div id="messages_content"></div>
 </div>
+<div class="container">
+ <form id="contact" method="post" name="contact-form">
+ {% csrf_token %}
+   <input type="hidden" name="contact_number">
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+    <label for="first_name">First Name</label>
+      <input type="text" class="form-control" id="first_name" name="first_name" required>
+    </div>
+    <div class="col-sm-12 col-md-6">
+    <label for="last_name">Last Name</label>
+    <input type="text" class="form-control" id="last_name" name="last_name" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for=" email_address">Email address</label>
+    <input type="email" class="form-control" id="email_address" name="email_address" required>
+  </div>
+    <div>
+    <label for="subject">Subject</label>
+      <input type="text" class="form-control" id="subject" name="subject" required>
+    </div>
+    <div>
+     <label for="message">Message</label>
+    <textarea class="form-control" rows="3" id="message" name="message" required></textarea>
+    </div>
+    <button type="submit" value="Send" class="btn btn-default" onclick="formTidy()">Send</button>
+    </form>
+    </div>
+</div>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_GXxEk5JXUi6PanXg50NK5");
+   })();
+</script>
 {% endblock %}
