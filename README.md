@@ -9,7 +9,7 @@ This project I am combining all the knowledge I have gained from this course to 
 
 ### SPS Creative Services
 
-![SPS logo](support-docs/sps-design-services.jpg)
+![SPS logo](support-docs/images/sps-design-services.jpg)
 
 
 ## User Experience / UX
@@ -35,13 +35,13 @@ The design for this project is based mainly on my existing branding for my freel
 I have limited myself down to two fonts, which contrast a reasonable amount in order to better distinguish heading from paragraph.
 'Montserrat' is my heading font, I love this font for its bold striking characters which set it apart from anything else on the page.
 'Roboto Mono' is the font I have used for the main body of my text. I feel this quirky monospace font captures the fun vibe without losing the professional edge, perfect for adding a bit of charm and character to the site, which helps to distance it from others in its genre. Both fonts I have aquired from [Google Fonts](https://fonts.google.com/ "Google Fonts" ), I chose Google fonts, because its FREE for a start and it houses a wide selection of fonts with easy implementation with no strings attached, perfect. 
-![Montserrat](support-docs/Montserrat.png)
-![Roboto Mono](support-docs/Roboto.png)
+![Montserrat](support-docs/images/Montserrat.png)
+![Roboto Mono](support-docs/images/Roboto.png)
 
 #### Colour Scheme
 I'm a big fan of teal and punchy colours, so as you can see it may have have influenced my project a "tad". I have worked from aspect of keeping things fairly neutral but using my colour palette to highlight areas and accentuate call to action buttons to attract potential clients attention. Just incase you can't see the photo below, the colours in question are as follows:
 #1B1332 --> MIDDLE RED PURPLE #008082 --> TEAL #E5097F --> MEXICAN PINK #333333 --> JET BLACK #393082 --> COSMIC COBALT
-![Color Palette](support-docs/coolors-palette.jpg)
+![Color Palette](support-docs/images/coolors-palette.jpg)
 
 #### Icons
 I have imported and used icons from the [Font Awesome](https://fontawesome.com/v4.7.0/icons/ "Font Awesome" ) library, its not my favourite library out there but it is very quick and easy to implement and get started with. However I did find that some html entities were better for alignment rather than using icons. This was definately the case with currency symbols I found.
@@ -57,7 +57,7 @@ I have imported and used icons from the [Font Awesome](https://fontawesome.com/v
 
 ### Wireframing
 I used [Balsamic](https://balsamiq.com/ "Balsamic ) for my projects wireframes. Not the most user friendly or the best for graphical works of art, but you can pick it up pretty fast and there is a wide range of icons and components. Which allows you to drag and drop a fairly accurate and clear wireframe in record time. My design didn't stray to far away from my initial wireframes as I felt after doing the wireframes I had a pretty good idea of what I wanted to achieve. I also really like how it opens your eyes to what space you need for certain design aspects to work and to work together. I did change my mind on some of the icons that I used and in what order. This happened when I realised the icons I was using for certain positions actually fit other elements better. I also used the Google search engine to search for key words or phrases and noted what results came up first in terms of imagery and related phrases. I think this helped alot to get out of my own head and think about what other people might be looking for or what they might associate with a certain term. Please see below the pictures of my first initial mock up wireframes.
-![Wireframes](support-docs/wireframes.png)
+![Wireframes](support-docs/images/wireframes.png)
 
 
 ## Technology Used
