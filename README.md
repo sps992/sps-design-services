@@ -201,8 +201,8 @@ Don't forget to add these new dependents to your "requirements.txt". You can do 
 ~~~ 
 pip3 freeze > requirements.txt 
 ~~~
-
-4. Creating a Procfile - A Procfile is the file that tells Heroku what programming language you are using and gives it more insight into what buildpack it should use. *Please Note: You must use a capital "P" in the file!*
+Last thing I need to do in the settings.py file is add my Heroku app name to the Allowed host setting, if this is not done correctly Heroku will give a forbidden error when trying to access the web app. 
+4. Creating a Procfile - A Procfile is the file that tells Heroku what programming language you are using and gives it more insight into what buildpack it should use. *Please Note: You must use a capital "P" in the file!*. Create this in the home directory. 
 
 
 ## Copyrights
