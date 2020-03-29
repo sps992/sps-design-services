@@ -65,6 +65,10 @@ I have imported and used icons from the [Font Awesome](https://fontawesome.com/v
 I used [Balsamic](https://balsamiq.com/ "Balsamic" ) for my projects wireframes. Not the most user friendly or the best for graphical works of art, but you can pick it up pretty fast and there is a wide range of icons and components. Which allows you to drag and drop a fairly accurate and clear wireframe in record time. My design didn't stray to far away from my initial wireframes as I felt after doing the wireframes I had a pretty good idea of what I wanted to achieve. I also really like how it opens your eyes to what space you need for certain design aspects to work and to work together. I did change my mind on some of the icons that I used and in what order. This happened when I realised the icons I was using for certain positions actually fit other elements better. I also used the Google search engine to search for key words or phrases and noted what results came up first in terms of imagery and related phrases. I think this helped alot to get out of my own head and think about what other people might be looking for or what they might associate with a certain term. Please see below the pictures of my first initial mock up wireframes.
 ![Wireframes](support-docs/images/wireframes.png)
 
+### Flow Chart
+
+This is the flowchart I used to plan my database structure. This differed from the original as I decided to move the foreign keys around for better future proofing for real world usage.
+[ADD FLOWCHART]
 
 ## Technology Used
 
@@ -208,9 +212,58 @@ Last thing I need to do in the settings.py file is add my Heroku app name to the
 5. Deploying to Heroku - Next its almost time for me to deploy, I now have all the requirements in place. Back on Heroku in my app view, I navigate to the deploy tab and scroll down to the deployment method options. For this project I am going to use the middle button "Connect to Github", this will ask for you to login and and authorize the connection. Once this is done I search for my project repository by starting to type it into the search box and click connect. My next step is to scroll down to "Manual Deploy" and click on "Deploy Branch" this will then start the deployment process to Heroku!
 
 6. Amazon S3 bucket - Its important to point out at this point that even though my web app is deployed successfully, I need to setup an external service for the saving of static files. Why? This is because Heroku uses a system for saving files that only last in 12 hour cycles after that it deletes all static content. Which is far from ideal. So I want to set up an AWS( Amazon Web Services) account so I can create and use "Buckets" to store my static files in to ease my mind that all my content is going to be deleted.*Its always good practice to have a database backup, but I'm not going to demonstrate that in this project*. 
-Once I have setup an account I need to navigate to the Amazon S3 service and click the orange button "Create Bucket". Flick to the "Properties Tab" and click 
+Once I have setup an account I need to navigate to the Amazon S3 service and click the orange button "Create Bucket". Flick to the Properties Tab and click "Static website Hosting". In here I need to define some example html pages. Insert "index.html" and "error.html" as the example states and click save. Make sure your properties are set to public so its possible to for my admin user to upload static files via the admin panel.
+    - Bucket configuration - Moving on, I need to configure my Bucket Policy, to do this I need to fill in the following default code into the empty box and press save( in the live version I have changed my ARN into the one displayed inside the dashboard)...
+~~~ 
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::example-bucket/*"
+        }
+    ]
+}
+~~~
+    In CORS config I also need to input the following code...
+~~~
+<?xml version="1.0" encoding="UTF-8"?>
+<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+<CORSRule>
+    <AllowedOrigin>*</AllowedOrigin>
+    <AllowedMethod>GET</AllowedMethod>
+    <MaxAgeSeconds>3000</MaxAgeSeconds>
+    <AllowedHeader>Authorization</AllowedHeader>
+</CORSRule>
+</CORSConfiguration>
+~~~
+    - Identity and Access Management (IAM) - This is where I define who can access my Amazon AWS services. Firstly I need to set a group name, I have given it the name "sps-design-group" as my bucket to keep things simple. Once I have created a group I have to create a policy. Click "Create policy", navigate to the JSON tab, click "import managed policy" and select Amazon S3-full Access. In the resource line of code remove the asterix string and replace with a list consisting of two items, first item is the ARN from the bucket policy and the second is the same again but with a "/*" appended to the end. Click "Review Policy", and then I have given the policy a name that is associated with the bucket. For simplicity sake, I have named it "sps-design-policy". Next step is to add it to the group I created earlier. Lastly I need to create a user for the group, tick programatic access, and add to group I previously created. This will then give you the option to download the "credentials.csv", this file is amazingly important as this is only generated once. If you don't log them you would have to delete your user and start again. 
 
+7. Adding AWS S3 to Django -  There is a couple of packages needed in order to use the S3 in my project. one is called "Django Storages" and the other is called "boto3". These will need to be installed and added to the requirements.txt file in the same way as documented above. As the same way apps have been declared previous in this project, "Django Storages" will need to be declared under INSTALLED_APPS. Following this I need to add a parameter to the bottom of my code so it lets AWS know it can cache my static files. See example code below...
+~~~
+AWS_S3_OBJECT_PARAMETERS = {
+    'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+    'CacheControl': 'max-age=94608000'
+}
+~~~ 
+I then need to add the details of the AWS Bucket that I am trying to connect to for my static files.
+~~~
+AWS_STORAGE_BUCKET_NAME = 'sps-design-services'
+AWS_S3_REGION_NAME = 'eu-west-2'
+AWS_ACCESS_KEY_ID = os.environ.get("AWS_SECRET_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
 
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+~~~
+    - Adding AWS credentials - The code above is asking for the AWS variables in the "env.py" file. At the moment we haven't actually put them in there, so I need to open the "credentials.csv" file I downloaded earlier and copy and paste in my variables. As we have deployed this project to Heroku, I also need to add these key variables to heroku the same way as I did the others. To check its wired up correctly, I have ran the command in the terminal window...
+    ~~~
+    python3 manage.py collectstatic
+    ~~~    
+    Now this is uploading all the current static files to the S3 bucket. To check whether the project is pulling the static files from the bucket. I can run the server and open developer tools, if I inspect any element that I have styled on the page and click the link( for example "custom.css"), it should show me the link to the file goes to my S3 Bucket, Success!
+    
 ## Copyrights
 
 ### Media
