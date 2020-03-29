@@ -185,7 +185,19 @@ This will search my env.py for my database_url I inputted earlier from Heroku an
     ~~~ 
     pip3 install psycopg2 
     ~~~
-Don't forget to add these new dependents to your "requirements.txt". You can do this withthe following command:
+    - whitenoise - This allows for the proper use of the static files, such as CSS, JS, images etc. This needs the following line added to the settings.py to function in the project.
+    ~~~
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    ~~~ 
+    You will also need to add the following line to the bottom of the settings.py page to tell whitenoise, where the static directory is:
+    ~~~
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    ~~~
+    Again I can install this using the following terminal command
+    ~~~
+    pip3 install whitenoise
+    ~~~
+Don't forget to add these new dependents to your "requirements.txt". You can do this with the following command:
 ~~~ 
 pip3 freeze > requirements.txt 
 ~~~
