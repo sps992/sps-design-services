@@ -164,7 +164,11 @@ These are the steps I took to deploy my project to Heroku using Heroku's "Hobby 
 
 1. Create app in Heroku - First things first, I need to create a new app in my Heroku account. This is where my project will eventually be hosted on. Once I have created my app I need to navigate to the "Resources" tab. When my project is deployed it is going to need a database, so scroll down the page and start typing in "Postgres", you should now see "Heroku Postgres" in the dropdown. Click it and select the plan name "Hobby Dev - Free", this will be the new database when deployed. Navigate now to the settings tab and click "Reveal Config Vars", this should reveal an input box with your PostgreSQL database url in it. Copy the details and update the "env.py" file. Also this is a good time to copy your other secret keys from "env.py" and stick them in the boxes, using the same format as the database_url. This needs to be done as the "env.py" file does not get deployed to Heroku( as its in my .gitignore file).
 
-2. Linking the project to the PostgreSQL database - Now I need to navigate back to my project files in Gitpod and update my seetings.py file. At the top underneath "import os" I need to insert the line ~~~ import dj_database_url ~~~. Next I need to tell my project that this is the database I want to connect to.*Before doing this it is a good idea to either note down any bulk content from the current database or take a backup of the files. As once you switch databases it will remove anything you have added via the admin panel!* So I scroll to the database section of my settings.py file, comment out the current database setup and insert the following:
+2. Linking the project to the PostgreSQL database - Now I need to navigate back to my project files in Gitpod and update my seetings.py file. At the top underneath "import os" I need to insert the line...
+~~~ 
+import dj_database_url
+~~~
+Next I need to tell my project that this is the database I want to connect to.*Before doing this it is a good idea to either note down any bulk content from the current database or take a backup of the files. As once you switch databases it will remove anything you have added via the admin panel!* So I scroll to the database section of my settings.py file, comment out the current database setup and insert the following:
 ~~~ 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
@@ -174,11 +178,17 @@ This will search my env.py for my database_url I inputted earlier from Heroku an
 
 3. Installing requirements - First I need to check that I have the following libraries installed, in order for my repository to correctly communicate with Heroku and work as expected.
     - Gunicorn or "Green Unicorn" - Gunicorn is a Python WSGI( Web Server Gateway Interface).
-    ~~~ pip3 install gunicorn ~~~
+    ~~~ 
+    pip3 install gunicorn 
+    ~~~
     - psycopg2 - A database adapter for PostgreSQL for Python.
-    ~~~ pip3 install psycopg2 ~~~
+    ~~~ 
+    pip3 install psycopg2 
+    ~~~
 Don't forget to add these new dependents to your "requirements.txt". You can do this withthe following command:
-~~~ pip3 freeze > requirements.txt ~~~
+~~~ 
+pip3 freeze > requirements.txt 
+~~~
 
 4. Creating a Procfile - A Procfile is the file that tells Heroku what programming language you are using and gives it more insight into what buildpack it should use. *Please Note: You must use a capital "P" in the file!*
 
