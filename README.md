@@ -14,9 +14,9 @@ This project I am combining all the knowledge I have gained from this course to 
 
 ## User Experience / UX
 
-I have been a freelance designer for close to 10 years and I have used numerous freelancer websites to advertise my skills to hungry enthuastic clients. However alot of the companies take quite high fees and are full of hidden cost or hoops that you have to jump through to actually get your hardwork to start paying off. So I wanted to study the design that they use and how it could be redesigned in a Django framework. I'm particularly fond of the [Fiverr website](https://www.fiverr.com/ "Fiverr website" ) and took alot of design inspiration from their path of search to order with a fixed range of customization on different plans.
+I have been a freelance designer for close to 10 years and I have used numerous freelancer websites to advertise my skills to hungry enthuastic clients. However alot of the companies take quite high fees and are full of hidden cost or hoops that you have to jump through to actually get your hardwork to start paying off. So I wanted to study the design that they use and how it could be redesigned in a Django framework. I'm particularly fond of the [Fiverr website](https://www.fiverr.com/ "Fiverr website" ) and took alot of design inspiration from their path of search to order with a fixed range of customisation on different plans.
 So to break it down, I want to achieve:
-- To build a catalog of my services and create plans that gives the client a controlled amount of customization, which in turn will help with scope creep.
+- To build a catalog of my services and create plans that gives the client a controlled amount of customisation, which in turn will help with scope creep.
 - To design and implement a user interface that you can easily navigate around without having prior experience of the site.
 - The functionality to be able to see and process existing orders from the backend.
 - A fully working order cart for prospective clients to exchange money for services.
@@ -62,7 +62,7 @@ I have imported and used icons from the [Font Awesome](https://fontawesome.com/v
 
 ### Wireframing
 
-I used [Balsamic](https://balsamiq.com/ "Balsamic ) for my projects wireframes. Not the most user friendly or the best for graphical works of art, but you can pick it up pretty fast and there is a wide range of icons and components. Which allows you to drag and drop a fairly accurate and clear wireframe in record time. My design didn't stray to far away from my initial wireframes as I felt after doing the wireframes I had a pretty good idea of what I wanted to achieve. I also really like how it opens your eyes to what space you need for certain design aspects to work and to work together. I did change my mind on some of the icons that I used and in what order. This happened when I realised the icons I was using for certain positions actually fit other elements better. I also used the Google search engine to search for key words or phrases and noted what results came up first in terms of imagery and related phrases. I think this helped alot to get out of my own head and think about what other people might be looking for or what they might associate with a certain term. Please see below the pictures of my first initial mock up wireframes.
+I used [Balsamic](https://balsamiq.com/ "Balsamic" ) for my projects wireframes. Not the most user friendly or the best for graphical works of art, but you can pick it up pretty fast and there is a wide range of icons and components. Which allows you to drag and drop a fairly accurate and clear wireframe in record time. My design didn't stray to far away from my initial wireframes as I felt after doing the wireframes I had a pretty good idea of what I wanted to achieve. I also really like how it opens your eyes to what space you need for certain design aspects to work and to work together. I did change my mind on some of the icons that I used and in what order. This happened when I realised the icons I was using for certain positions actually fit other elements better. I also used the Google search engine to search for key words or phrases and noted what results came up first in terms of imagery and related phrases. I think this helped alot to get out of my own head and think about what other people might be looking for or what they might associate with a certain term. Please see below the pictures of my first initial mock up wireframes.
 ![Wireframes](support-docs/images/wireframes.png)
 
 
@@ -80,9 +80,10 @@ I used [Balsamic](https://balsamiq.com/ "Balsamic ) for my projects wireframes. 
 ### Front-End Technologies
 
 - HTML - Used as the base for project code.
-- CSS and Bootstrap - Used for customization of my html elements without any preprocessors.
+- CSS and Bootstrap - Used for customisation of my html elements without any preprocessors.
 - JS and JQuery - Used to extend the functionality of my projects code.
-- Light Gallery.js - I used the Light Gallery library as the base of my customized portfolio slider gallery, it uses a couple of other Javascript librarys to extend its functionality like creating a full screen version of the image, zooming in and out and other handy functions like a slideshow timer( if you wanted the user to determine whether they control or have images scroll through automatically on a timer).
+- Light Gallery.js - I used the Light Gallery library as the base of my customised portfolio slider gallery, it uses a couple of other Javascript librarys to extend its functionality like creating a full screen version of the image, zooming in and out and other handy functions like a slideshow timer( if you wanted the user to determine whether they control or have images scroll through automatically on a timer).
+- emailjs - I used Emailjs as the method to manage my data submissions sent from my contact form to my delivery location address.
 
 ### Back-End Technologies
 
@@ -113,6 +114,17 @@ I used [Balsamic](https://balsamiq.com/ "Balsamic ) for my projects wireframes. 
 
 ## Testing
 
+**Add Functionality**
+I have tested forms throughly on the front-end. I did this by initially trying to get the form to send without filling any data in and checking that it flags that the required criteria is not met. I then began a series of tests by putting data in the first input field and trying to send, checking that it still flags the required criteria and then continue to do this with all the fields until all the requirements have been met. I also double-checked that the form sends when all required criteria has been submitted and that the data from the form is being sent correctly to its destination. An example of where I have done this specifically is the contact form on the contact.html page. I used [Emailjs](https://www.emailjs.com/ "Emailjs" ) javascript library to manage my submissions and I used custom javascript to link it to my project. I sent multiple tests to my personal gmail account to makesure that it was sending properly. See submission example below...
+
+![Development server prompt](support-docs/images/development-server-prompt.png)
+
+**Edit Functionality**
+Once you have logged into the admin area, there is the option to edit services( if you have the correct user role privileges, if not it will simply refuse the user entry), I have tested this by adjusting the values in each input box provided and checking the front end for the corresponding content change. Due to correct coding for the models this did not incur any errors whilst testing. But I did add a blank box on some of the input fields, which added flexibility when aservice did not require that field to be displayed without having the statement "None" being presented on services without the field defined.
+
+**Delete Functionality**
+I tested the delte function much like the *edit* function, as I would also need to navigate to the admin area and select to edit a serivce or available model. However when I tried this originally I did discover the way foreign keys operate under certain "collapse" attributes, as when I deleted a service category originally, it would delete all the product assigned to it. Which was a huge design flaw, I then developed my database structure further using flowcharts. This resulted in me changing the foreign keys to be in the service model and linking from there to the other two models.
+
 ### Validators
 
 
@@ -127,7 +139,7 @@ I used [Balsamic](https://balsamiq.com/ "Balsamic ) for my projects wireframes. 
 I deployed my project using Gitpod IDE and Github, so I will demonstrate how to deploy locally using the same method. If you are using a local code editor like VScode please check you have all the prerequisites for version control, Python and the correct version of Django installed. Please also refer to my requirements.txt file if you need to check any dependents prior to pulling the repo from Github. Please also change the name if you are forking, as this is used actively on my personal and freelance development career. Thank you!
 Please follow the following steps carefully:
 
-1. Gitpod setup - Firstly, create a Gitpod account if you haven't already and agree to the neccessary terms to create your free account. You will need to authorize a connection between Gitpod and your Github account. Proceed to then add the [Gitpod](https://chrome.google.com/webstore/detail/Gitpod-online-ide/dodmmooeoklaejobgleioelladacbeki "Gitpod ) extension to your Chrome Browser( for the record I have not tried using this extension on another brand of internet browser, so I would highly recommend using Chrome whilst using Gitpod).
+1. Gitpod setup - Firstly, create a Gitpod account if you haven't already and agree to the neccessary terms to create your free account. You will need to authorize a connection between Gitpod and your Github account. Proceed to then add the [Gitpod](https://chrome.google.com/webstore/detail/Gitpod-online-ide/dodmmooeoklaejobgleioelladacbeki "Gitpod" ) extension to your Chrome Browser( for the record I have not tried using this extension on another brand of internet browser, so I would highly recommend using Chrome whilst using Gitpod).
 
 2. Create project in Github - Firstly scroll up to the top of this page and you will see a button called "Fork", this will alow you to copy the projects files on to your own repo on your account .*Please Note: you could press the Gitpod button to deploy this project straight from my repo, however it is better practice to create your own repo on your account first as this future proofs further development and version control on your cloned project*. Once you have set up your own forked version of the project scroll again to the top of the page and click on the green "Gitpod" button to open your repo in Gitpod for the first time. 
 
@@ -144,9 +156,31 @@ os.environ.setdefault('SECRET_KEY', "[YOUR KEY HERE]")
 4. Adding and installing project dependents - There is a file named "requirements.txt" which contains a list of all the projects dependent libraries. You will need to install this before the project will work properly. To do this simply open a new terminal in Gitpod and type in the command ~~~ pip3 install -r requirements.txt ~~~
 
 5. Booting a local development server - To view your project on a live local development server, you need to tell python to first serve a port. To do this you need to type the command ~~~ python3 manage.py runserver ~~~ into the terminal and press enter. You should then be greated with a little message that says "A service is available on port 8000" in the bottom corner of the screen. Click either "Open Preview", to open the Gitpod preview pane inside the IDE or press "Open Browser". Which will open the running development server in a new tab. Voila, you are set up and ready to go!
+
 ![Local Running Server](support-docs/images/development-server-prompt.png)
 
 **Remote Deployment**
+These are the steps I took to deploy my project to Heroku using Heroku's "Hobby Dev" free PostgresSQL database.
+
+1. Create app in Heroku - First things first, I need to create a new app in my Heroku account. This is where my project will eventually be hosted on. Once I have created my app I need to navigate to the "Resources" tab. When my project is deployed it is going to need a database, so scroll down the page and start typing in "Postgres", you should now see "Heroku Postgres" in the dropdown. Click it and select the plan name "Hobby Dev - Free", this will be the new database when deployed. Navigate now to the settings tab and click "Reveal Config Vars", this should reveal an input box with your PostgreSQL database url in it. Copy the details and update the "env.py" file. Also this is a good time to copy your other secret keys from "env.py" and stick them in the boxes, using the same format as the database_url. This needs to be done as the "env.py" file does not get deployed to Heroku( as its in my .gitignore file).
+
+2. Linking the project to the PostgreSQL database - Now I need to navigate back to my project files in Gitpod and update my seetings.py file. At the top underneath "import os" I need to insert the line ~~~ import dj_database_url ~~~. Next I need to tell my project that this is the database I want to connect to.*Before doing this it is a good idea to either note down any bulk content from the current database or take a backup of the files. As once you switch databases it will remove anything you have added via the admin panel!* So I scroll to the database section of my settings.py file, comment out the current database setup and insert the following:
+~~~ 
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+ }
+~~~
+This will search my env.py for my database_url I inputted earlier from Heroku and connect to the new database.
+
+3. Installing requirements - First I need to check that I have the following libraries installed, in order for my repository to correctly communicate with Heroku and work as expected.
+    - Gunicorn or "Green Unicorn" - Gunicorn is a Python WSGI( Web Server Gateway Interface).
+    ~~~ pip3 install gunicorn ~~~
+    - psycopg2 - A database adapter for PostgreSQL for Python.
+    ~~~ pip3 install psycopg2 ~~~
+Don't forget to add these new dependents to your "requirements.txt". You can do this withthe following command:
+~~~ pip3 freeze > requirements.txt ~~~
+
+4. Creating a Procfile - A Procfile is the file that tells Heroku what programming language you are using and gives it more insight into what buildpack it should use. *Please Note: You must use a capital "P" in the file!*
 
 
 ## Copyrights
