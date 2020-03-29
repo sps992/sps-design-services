@@ -7,7 +7,7 @@ This project I am combining all the knowledge I have gained from this course to 
 [![Build Status](https://travis-ci.com/sps992/sps-design-services.svg?branch=master)](https://travis-ci.com/sps992/sps-design-services)
 
 [Live Heroku link here](#/ "Live Heroku link here" )
-
+[Live Heroku link here](https://sps-design-services.herokuapp.com/ "Live Heroku link here" ) 
 
 ![SPS logo](support-docs/images/sps-design-services.jpg)
 [ INSERT RESPONSIVE IMAGE ]
@@ -202,7 +202,13 @@ Don't forget to add these new dependents to your "requirements.txt". You can do 
 pip3 freeze > requirements.txt 
 ~~~
 Last thing I need to do in the settings.py file is add my Heroku app name to the Allowed host setting, if this is not done correctly Heroku will give a forbidden error when trying to access the web app. 
+
 4. Creating a Procfile - A Procfile is the file that tells Heroku what programming language you are using and gives it more insight into what buildpack it should use. *Please Note: You must use a capital "P" in the file!*. Create this in the home directory. 
+
+5. Deploying to Heroku - Next its almost time for me to deploy, I now have all the requirements in place. Back on Heroku in my app view, I navigate to the deploy tab and scroll down to the deployment method options. For this project I am going to use the middle button "Connect to Github", this will ask for you to login and and authorize the connection. Once this is done I search for my project repository by starting to type it into the search box and click connect. My next step is to scroll down to "Manual Deploy" and click on "Deploy Branch" this will then start the deployment process to Heroku!
+
+6. Amazon S3 bucket - Its important to point out at this point that even though my web app is deployed successfully, I need to setup an external service for the saving of static files. Why? This is because Heroku uses a system for saving files that only last in 12 hour cycles after that it deletes all static content. Which is far from ideal. So I want to set up an AWS( Amazon Web Services) account so I can create and use "Buckets" to store my static files in to ease my mind that all my content is going to be deleted.*Its always good practice to have a database backup, but I'm not going to demonstrate that in this project*. 
+Once I have setup an account I need to navigate to the Amazon S3 service and click the orange button "Create Bucket". Flick to the "Properties Tab" and click 
 
 
 ## Copyrights
