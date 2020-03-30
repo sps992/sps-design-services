@@ -4,7 +4,8 @@ from .models import Service, ServiceDetails, ServiceCategory
 
 # Create your views here.
 def all_services(request):
-    services = Service.objects.filter(category__category_name='Basic')
+    #services = Service.objects.filter(category__category_name='Basic')
+    services = Service.objects.filter(category__category_name__icontains='Basic')
     return render(request, "services.html", {"services": services})
 
 

@@ -28,6 +28,15 @@ So to break it down, I want to achieve:
 
 Example structure: As a < user >, I would like to < goal > so that < reason >.
 
+* As a user, I would like to browse services, so that I can get an idea of what is offered.
+* As a user, I would like to fill in a contact form, so that I can get some extra advice.
+* As an admin user, I would like to add a service, so that I can market my new skill.
+* As an admin user, I would like to edit a service description, so that I can add / remove included features.
+* As a potential customer, I would like to browse the portfolio, so that I can feel more at ease my demands can be met.
+* As a potential customer I want to have flexibility on what I am getting for my money and further customization if I need it.
+* As a registered account holder, I want to have the ability to have alerts when I perform an action to let me know that the action has been performed successfully or not.
+* As a registered account holder, I want to be able to purchase a service using a simple payment form, in as least steps as possible.
+
 
 ### Design
 
@@ -112,10 +121,17 @@ This is the flowchart I used to plan my database structure. This differed from t
 
 
 ### Implemented Features
-
+The site currently has the following features:
+* To register an account connected to an email or username.
+* To send a password reminder to a registered user.
+* To login and logout an existing user with an alert letting them know they have done so.
+* To browse different available services.
 
 #### Future Features
+- I would like to add the feature which I featured on the user profile page, which is the ability to see active subscriptions to services the user has paid for and a expiry date for repeat billing. I added a coming soon page filler to gauge an idea of the space if I ever get the time to launch this app into the real world. 
+- I also like the idea of adding the abillity of adding a user profile photo and having a thumbnail that would act as a default if they didn't open load one. In a similar way a social media platform has one.
 
+![User Profile](support-docs/images/user-profile.png)
 ## Testing
 
 **Add Functionality**
@@ -276,5 +292,6 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 #### Inspiration
 
+I took my inspiration for my initial design layout for service tabs from [Fiverr website](https://www.fiverr.com/ "Fiverr website" ), however I do feel now I have had the time to tweak them, that my design is marginally better.
 #### Special Thanks
 
