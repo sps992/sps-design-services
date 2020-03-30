@@ -77,7 +77,7 @@ I used [Balsamic](https://balsamiq.com/ "Balsamic" ) for my projects wireframes.
 ### Flow Chart
 
 This is the flowchart I used to plan my database structure. This differed from the original as I decided to move the foreign keys around for better future proofing for real world usage.
-[ADD FLOWCHART]
+![Development server prompt](support-docs/images/flow-diagram)
 
 ## Technology Used
 
@@ -126,6 +126,7 @@ The site currently has the following features:
 * To send a password reminder to a registered user.
 * To login and logout an existing user with an alert letting them know they have done so.
 * To browse different available services.
+* Services with nicely presented tabs to cycle through the different plans in that category.
 
 #### Future Features
 - I would like to add the feature which I featured on the user profile page, which is the ability to see active subscriptions to services the user has paid for and a expiry date for repeat billing. I added a coming soon page filler to gauge an idea of the space if I ever get the time to launch this app into the real world. 
@@ -293,5 +294,7 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 #### Inspiration
 
 I took my inspiration for my initial design layout for service tabs from [Fiverr website](https://www.fiverr.com/ "Fiverr website" ), however I do feel now I have had the time to tweak them, that my design is marginally better.
+
 #### Special Thanks
 
+I would like to thank my peers in Slack for giving me guidance and helping me to solve some of the more advanced features and get over some difficult hurdles. I would also like to give a big thank you to the CI support team as their help has got me out of some pretty tough spots too, and they are seem to be a pretty great bunch! Lastly but not leastly an enormous thank you to my girlfriend for not killing me whilst I grump around the house frustrated that my code wont work or the long days and nights spent at my desk coding away!
