@@ -10,7 +10,7 @@
 
 		<ul class="nav nav-tabs">
 			{% for service in services %}
-            <!-- https://stackoverflow.com/a/6170306 -->
+            
 			{% if forloop.first %} <!-- add 'class="active"' if first item -->
 			<li class="active"><a data-toggle="tab" href="#{{ service.category }}">{{ service.category }}</a></li>
 			{% else %} <!-- otherwise no li class -->
@@ -21,7 +21,6 @@
 
 		<div class="tab-content">
 			{% for service in services %}
-            <!-- https://stackoverflow.com/a/6170306 -->
 			{% if forloop.first %} <!-- add 'class="in active"' if first item -->
 			<div id="{{ service.category }}" class="tab-pane fade in active">
             {% else %} <!-- otherwise normal classes only -->

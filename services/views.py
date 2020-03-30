@@ -11,5 +11,5 @@ def all_services(request):
 
 def service_detail_view(request, service_id):
     service = get_object_or_404(Service, pk=service_id)
-    services = Service.objects.filter(name__iexact=service.name)
+    services = Service.objects.filter(name__icontains=service.name)
     return render(request, 'service-form.html', {'services': services})
