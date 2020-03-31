@@ -15,27 +15,26 @@ This project I am combining all the knowledge I have gained from this course to 
 
 I have been a freelance designer for close to 10 years and I have used numerous freelancer websites to advertise my skills to hungry enthuastic clients. However alot of the companies take quite high fees and are full of hidden cost or hoops that you have to jump through to actually get your hardwork to start paying off. So I wanted to study the design that they use and how it could be redesigned in a Django framework. I'm particularly fond of the [Fiverr website](https://www.fiverr.com/ "Fiverr website" ) and took alot of design inspiration from their path of search to order with a fixed range of customisation on different plans.
 So to break it down, I want to achieve:
+
 - To build a catalog of my services and create plans that gives the client a controlled amount of customisation, which in turn will help with scope creep.
 - To design and implement a user interface that you can easily navigate around without having prior experience of the site.
 - The functionality to be able to see and process existing orders from the backend.
 - A fully working order cart for prospective clients to exchange money for services.
 - To have a portfolio of previous works on display to solidify potential customers.
-- Have a user area for clients to connect with me or potentially browse their purchased services. 
-
+- Have a user area for clients to connect with me or potentially browse their purchased services.
 
 ### User Stories
 
 Example structure: As a < user >, I would like to < goal > so that < reason >.
 
-* As a user, I would like to browse services, so that I can get an idea of what is offered.
-* As a user, I would like to fill in a contact form, so that I can get some extra advice.
-* As an admin user, I would like to add a service, so that I can market my new skill.
-* As an admin user, I would like to edit a service description, so that I can add / remove included features.
-* As a potential customer, I would like to browse the portfolio, so that I can feel more at ease my demands can be met.
-* As a potential customer I want to have flexibility on what I am getting for my money and further customization if I need it.
-* As a registered account holder, I want to have the ability to have alerts when I perform an action to let me know that the action has been performed successfully or not.
-* As a registered account holder, I want to be able to purchase a service using a simple payment form, in as least steps as possible.
-
+- As a user, I would like to browse services, so that I can get an idea of what is offered.
+- As a user, I would like to fill in a contact form, so that I can get some extra advice.
+- As an admin user, I would like to add a service, so that I can market my new skill.
+- As an admin user, I would like to edit a service description, so that I can add / remove included features.
+- As a potential customer, I would like to browse the portfolio, so that I can feel more at ease my demands can be met.
+- As a potential customer I want to have flexibility on what I am getting for my money and further customization if I need it.
+- As a registered account holder, I want to have the ability to have alerts when I perform an action to let me know that the action has been performed successfully or not.
+- As a registered account holder, I want to be able to purchase a service using a simple payment form, in as least steps as possible.
 
 ### Design
 
@@ -45,7 +44,7 @@ The design for this project is based mainly on my existing branding for my freel
 
 I have limited myself down to two fonts, which contrast a reasonable amount in order to better distinguish heading from paragraph.
 'Montserrat' is my heading font, I love this font for its bold striking characters which set it apart from anything else on the page.
-'Roboto Mono' is the font I have used for the main body of my text. I feel this quirky monospace font captures the fun vibe without losing the professional edge, perfect for adding a bit of charm and character to the site, which helps to distance it from others in its genre. Both fonts I have aquired from [Google Fonts](https://fonts.google.com/ "Google Fonts" ), I chose Google fonts, because its FREE for a start and it houses a wide selection of fonts with easy implementation with no strings attached, perfect. 
+'Roboto Mono' is the font I have used for the main body of my text. I feel this quirky monospace font captures the fun vibe without losing the professional edge, perfect for adding a bit of charm and character to the site, which helps to distance it from others in its genre. Both fonts I have aquired from [Google Fonts](https://fonts.google.com/ "Google Fonts" ), I chose Google fonts, because its FREE for a start and it houses a wide selection of fonts with easy implementation with no strings attached, perfect.
 ![Montserrat](support-docs/images/Montserrat.png)
 ![Roboto Mono](support-docs/images/Roboto.png)
 
@@ -99,15 +98,14 @@ This is the flowchart I used to plan my database structure. This differed from t
 
 ### Back-End Technologies
 
-#### Django 1.11.28 
+#### Django 1.11.28
 
 - dj-database-url - 0.5.0 - A core file I needed to use database urls in my Django application.
 - django-forms-bootstrap - 3.1.0 - This allowed me to inject Bootstrap classes into forms auto generated from Django from my Python views and forms files.
 - django-storages - 1.9.1 - Used to provide custom storage backends in my Django project.
 - stripe - 2.43.0 - This is a Python library to provide my repo with access to Stripe API, which is what I used as my sole payment gateway for my order cart.
 
-
-#### Python 3.7.6 
+#### Python 3.7.6
 
 - boto3 - 1.12.16 / botocore - 1.15.16 - Used to allow me to use Amazon Web Services( AWS) Software Development Kit, which in turn readied my project to be able to use the AWS servers for remote storage of static files.
 - gunicorn - 20.0.4 - Used as a Web Server Gateway Interface(WSGI), which allowed me to get my Python Application to talk to Heroku.
@@ -118,15 +116,15 @@ This is the flowchart I used to plan my database structure. This differed from t
 
 ## Features
 
-
 ### Implemented Features
 
 The site currently has the following features:
-* To register an account connected to an email or username.
-* To send a password reminder to a registered user.
-* To login and logout an existing user with an alert letting them know they have done so.
-* To browse different available services.
-* Services with nicely presented tabs to cycle through the different plans in that category.
+
+- To register an account connected to an email or username.
+- To send a password reminder to a registered user.
+- To login and logout an existing user with an alert letting them know they have done so.
+- To browse different available services.
+- Services with nicely presented tabs to cycle through the different plans in that category.
 
 #### Future Features
 
@@ -137,47 +135,33 @@ The site currently has the following features:
 
 ## Testing
 
-**Add Functionality**
-
-I have tested forms throughly on the front-end. I did this by initially trying to get the form to send without filling any data in and checking that it flags that the required criteria is not met. I then began a series of tests by putting data in the first input field and trying to send, checking that it still flags the required criteria and then continue to do this with all the fields until all the requirements have been met. I also double-checked that the form sends when all required criteria has been submitted and that the data from the form is being sent correctly to its destination. An example of where I have done this specifically is the contact form on the contact.html page. I used [Emailjs](https://www.emailjs.com/ "Emailjs" ) javascript library to manage my submissions and I used custom javascript to link it to my project. I sent multiple tests to my personal gmail account to makesure that it was sending properly. See submission example below...
+**Add Functionality** - I have tested forms throughly on the front-end. I did this by initially trying to get the form to send without filling any data in and checking that it flags that the required criteria is not met. I then began a series of tests by putting data in the first input field and trying to send, checking that it still flags the required criteria and then continue to do this with all the fields until all the requirements have been met. I also double-checked that the form sends when all required criteria has been submitted and that the data from the form is being sent correctly to its destination. An example of where I have done this specifically is the contact form on the contact.html page. I used [Emailjs](https://www.emailjs.com/ "Emailjs" ) javascript library to manage my submissions and I used custom javascript to link it to my project. I sent multiple tests to my personal gmail account to makesure that it was sending properly. See submission example below...
 
 ![Development server prompt](support-docs/images/development-server-prompt.png)
 
-**Edit Functionality**
+**Edit Functionality** - Once you have logged into the admin area, there is the option to edit services( if you have the correct user role privileges, if not it will simply refuse the user entry), I have tested this by adjusting the values in each input box provided and checking the front end for the corresponding content change. Due to correct coding for the models this did not incur any errors whilst testing. But I did add a blank box on some of the input fields, which added flexibility when aservice did not require that field to be displayed without having the statement "None" being presented on services without the field defined.
 
-Once you have logged into the admin area, there is the option to edit services( if you have the correct user role privileges, if not it will simply refuse the user entry), I have tested this by adjusting the values in each input box provided and checking the front end for the corresponding content change. Due to correct coding for the models this did not incur any errors whilst testing. But I did add a blank box on some of the input fields, which added flexibility when aservice did not require that field to be displayed without having the statement "None" being presented on services without the field defined.
-
-**Delete Functionality**
-
-I tested the delte function much like the *edit* function, as I would also need to navigate to the admin area and select to edit a serivce or available model. However when I tried this originally I did discover the way foreign keys operate under certain "collapse" attributes, as when I deleted a service category originally, it would delete all the product assigned to it. Which was a huge design flaw, I then developed my database structure further using flowcharts. This resulted in me changing the foreign keys to be in the service model and linking from there to the other two models.
+**Delete Functionality** - I tested the delte function much like the *edit* function, as I would also need to navigate to the admin area and select to edit a serivce or available model. However when I tried this originally I did discover the way foreign keys operate under certain "collapse" attributes, as when I deleted a service category originally, it would delete all the product assigned to it. Which was a huge design flaw, I then developed my database structure further using flowcharts. This resulted in me changing the foreign keys to be in the service model and linking from there to the other two models.
 
 ### Validators
 
 I ran the following linters to validate my code and make it squeaky clean!
 
-**Html**
-
-I used the Nu Html Checker to validate my code and open my eyes to any issues that I may have missed. Originally it flagged two errors, one script tag where I accidentally had specified a "type" which was not needed and the other was nesting divs inside an unordered list, not sure why I did that. I reckon I must have been tired, ha!
+**Html** - I used the Nu Html Checker to validate my code and open my eyes to any issues that I may have missed. Originally it flagged two errors, one script tag where I accidentally had specified a "type" which was not needed and the other was nesting divs inside an unordered list, not sure why I did that. I reckon I must have been tired, ha!
 
 ![Nu Html Checker](support-docs/images/nu-html-checker.png)
 
-**CSS**
-
-I used the W3C CSS Validator to validate my CSS, I had two errors originally which was an invalid "speak" value and a depreciated term in my bootstrap.css file (max-device-width)which I updated and checked to makesure it was still working.
+**CSS** - I used the W3C CSS Validator to validate my CSS, I had two errors originally which was an invalid "speak" value and a depreciated term in my bootstrap.css file (max-device-width)which I updated and checked to makesure it was still working.
 
 ![Nu CSS Checker](support-docs/images/w3c-css-validator.png)
 
-**JS**
+**JS** - I used JSHint to validate my javascript code and it only flagged a couple of undefined function errors, however this is because it relates to a stylesheet from the Emailjs site which I do not have access to.
 
-I used JSHint to validate my javascript code and it only flagged a couple of undefined function errors, however this is because it relates to a stylesheet from the Emailjs site which I do not have access to. 
-
-**Python**
-
-I installed [autopep8](https://pypi.org/project/autopep8 "autopep8" )  to tidy up my unruly code and make it more readable. I favoured this over my old technique of using an online linter as it is much quicker and more efficient.
+**Python** - I installed [autopep8](https://pypi.org/project/autopep8 "autopep8" )  to tidy up my unruly code and make it more readable. I favoured this over my old technique of using an online linter as it is much quicker and more efficient.
 
 ## Deployment
 
-**Local Deployment**
+### Local Deployment
 
 I deployed my project using Gitpod IDE and Github, so I will demonstrate how to deploy locally using the same method. If you are using a local code editor like VScode please check you have all the prerequisites for version control, Python and the correct version of Django installed. Please also refer to my requirements.txt file if you need to check any dependents prior to pulling the repo from Github. Please also change the name if you are forking, as this is used actively on my personal and freelance development career. Thank you!
 Please follow the following steps carefully:
@@ -202,59 +186,77 @@ os.environ.setdefault('SECRET_KEY', "[YOUR KEY HERE]")
 
 ![Local Running Server](support-docs/images/development-server-prompt.png)
 
-**Remote Deployment**
+### Remote Deployment
 
 These are the steps I took to deploy my project to Heroku using Heroku's "Hobby Dev" free PostgresSQL database.
 
 1. Create app in Heroku - First things first, I need to create a new app in my Heroku account. This is where my project will eventually be hosted on. Once I have created my app I need to navigate to the "Resources" tab. When my project is deployed it is going to need a database, so scroll down the page and start typing in "Postgres", you should now see "Heroku Postgres" in the dropdown. Click it and select the plan name "Hobby Dev - Free", this will be the new database when deployed. Navigate now to the settings tab and click "Reveal Config Vars", this should reveal an input box with your PostgreSQL database url in it. Copy the details and update the "env.py" file. Also this is a good time to copy your other secret keys from "env.py" and stick them in the boxes, using the same format as the database_url. This needs to be done as the "env.py" file does not get deployed to Heroku( as its in my .gitignore file).
 
 2. Linking the project to the PostgreSQL database - Now I need to navigate back to my project files in Gitpod and update my seetings.py file. At the top underneath "import os" I need to insert the line...
-~~~ 
+
+~~~bash
 import dj_database_url
 ~~~
+
 Next I need to tell my project that this is the database I want to connect to.*Before doing this it is a good idea to either note down any bulk content from the current database or take a backup of the files. As once you switch databases it will remove anything you have added via the admin panel!* So I scroll to the database section of my settings.py file, comment out the current database setup and insert the following:
-~~~ 
+
+~~~bash
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
  }
 ~~~
+
 This will search my env.py for my database_url I inputted earlier from Heroku and connect to the new database.
 
 3. Installing requirements - First I need to check that I have the following libraries installed, in order for my repository to correctly communicate with Heroku and work as expected.
     - Gunicorn or "Green Unicorn" - Gunicorn is a Python WSGI( Web Server Gateway Interface).
-    ~~~ 
-    pip3 install gunicorn 
+
+    ~~~bash
+    pip3 install gunicorn
     ~~~
+
     - psycopg2 - A database adapter for PostgreSQL for Python.
-    ~~~ 
-    pip3 install psycopg2 
+
+    ~~~bash 
+    pip3 install psycopg2
     ~~~
+
     - whitenoise - This allows for the proper use of the static files, such as CSS, JS, images etc. This needs the following line added to the settings.py to function in the project.
-    ~~~
+
+    ~~~bash
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    ~~~ 
-    You will also need to add the following line to the bottom of the settings.py page to tell whitenoise, where the static directory is:
     ~~~
+
+    You will also need to add the following line to the bottom of the settings.py page to tell whitenoise, where the static directory is:
+
+    ~~~bash
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     ~~~
+
     Again I can install this using the following terminal command
-    ~~~
+
+    ~~~bash
     pip3 install whitenoise
     ~~~
-Don't forget to add these new dependents to your "requirements.txt". You can do this with the following command:
-~~~ 
-pip3 freeze > requirements.txt 
-~~~
-Last thing I need to do in the settings.py file is add my Heroku app name to the Allowed host setting, if this is not done correctly Heroku will give a forbidden error when trying to access the web app. 
 
-4. Creating a Procfile - A Procfile is the file that tells Heroku what programming language you are using and gives it more insight into what buildpack it should use. *Please Note: You must use a capital "P" in the file!*. Create this in the home directory. 
+Don't forget to add these new dependents to your "requirements.txt". You can do this with the following command:
+
+~~~bash
+pip3 freeze > requirements.txt
+~~~
+
+Last thing I need to do in the settings.py file is add my Heroku app name to the Allowed host setting, if this is not done correctly Heroku will give a forbidden error when trying to access the web app.
+
+4. Creating a Procfile - A Procfile is the file that tells Heroku what programming language you are using and gives it more insight into what buildpack it should use. *Please Note: You must use a capital "P" in the file!*. Create this in the home directory.
 
 5. Deploying to Heroku - Next its almost time for me to deploy, I now have all the requirements in place. Back on Heroku in my app view, I navigate to the deploy tab and scroll down to the deployment method options. For this project I am going to use the middle button "Connect to Github", this will ask for you to login and and authorize the connection. Once this is done I search for my project repository by starting to type it into the search box and click connect. My next step is to scroll down to "Manual Deploy" and click on "Deploy Branch" this will then start the deployment process to Heroku!
 
-6. Amazon S3 bucket - Its important to point out at this point that even though my web app is deployed successfully, I need to setup an external service for the saving of static files. Why? This is because Heroku uses a system for saving files that only last in 12 hour cycles after that it deletes all static content. Which is far from ideal. So I want to set up an AWS( Amazon Web Services) account so I can create and use "Buckets" to store my static files in to ease my mind that all my content is going to be deleted.*Its always good practice to have a database backup, but I'm not going to demonstrate that in this project*. 
+6. Amazon S3 bucket - Its important to point out at this point that even though my web app is deployed successfully, I need to setup an external service for the saving of static files. Why? This is because Heroku uses a system for saving files that only last in 12 hour cycles after that it deletes all static content. Which is far from ideal. So I want to set up an AWS( Amazon Web Services) account so I can create and use "Buckets" to store my static files in to ease my mind that all my content is going to be deleted.*Its always good practice to have a database backup, but I'm not going to demonstrate that in this project*.
 Once I have setup an account I need to navigate to the Amazon S3 service and click the orange button "Create Bucket". Flick to the Properties Tab and click "Static website Hosting". In here I need to define some example html pages. Insert "index.html" and "error.html" as the example states and click save. Make sure your properties are set to public so its possible to for my admin user to upload static files via the admin panel.
+
     - Bucket configuration - Moving on, I need to configure my Bucket Policy, to do this I need to fill in the following default code into the empty box and press save( in the live version I have changed my ARN into the one displayed inside the dashboard)...
-~~~ 
+
+~~~bash
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -268,8 +270,10 @@ Once I have setup an account I need to navigate to the Amazon S3 service and cli
     ]
 }
 ~~~
-    In CORS config I also need to input the following code...
-~~~
+
+In CORS config I also need to input the following code...
+
+~~~bash
 <?xml version="1.0" encoding="UTF-8"?>
 <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
 <CORSRule>
@@ -280,17 +284,21 @@ Once I have setup an account I need to navigate to the Amazon S3 service and cli
 </CORSRule>
 </CORSConfiguration>
 ~~~
-    - Identity and Access Management (IAM) - This is where I define who can access my Amazon AWS services. Firstly I need to set a group name, I have given it the name "sps-design-group" as my bucket to keep things simple. Once I have created a group I have to create a policy. Click "Create policy", navigate to the JSON tab, click "import managed policy" and select Amazon S3-full Access. In the resource line of code remove the asterix string and replace with a list consisting of two items, first item is the ARN from the bucket policy and the second is the same again but with a "/*" appended to the end. Click "Review Policy", and then I have given the policy a name that is associated with the bucket. For simplicity sake, I have named it "sps-design-policy". Next step is to add it to the group I created earlier. Lastly I need to create a user for the group, tick programatic access, and add to group I previously created. This will then give you the option to download the "credentials.csv", this file is amazingly important as this is only generated once. If you don't log them you would have to delete your user and start again. 
+
+- Identity and Access Management (IAM) - This is where I define who can access my Amazon AWS services. Firstly I need to set a group name, I have given it the name "sps-design-group" as my bucket to keep things simple. Once I have created a group I have to create a policy. Click "Create policy", navigate to the JSON tab, click "import managed policy" and select Amazon S3-full Access. In the resource line of code remove the asterix string and replace with a list consisting of two items, first item is the ARN from the bucket policy and the second is the same again but with a "/*" appended to the end. Click "Review Policy", and then I have given the policy a name that is associated with the bucket. For simplicity sake, I have named it "sps-design-policy". Next step is to add it to the group I created earlier. Lastly I need to create a user for the group, tick programatic access, and add to group I previously created. This will then give you the option to download the "credentials.csv", this file is amazingly important as this is only generated once. If you don't log them you would have to delete your user and start again.
 
 7. Adding AWS S3 to Django -  There is a couple of packages needed in order to use the S3 in my project. one is called "Django Storages" and the other is called "boto3". These will need to be installed and added to the requirements.txt file in the same way as documented above. As the same way apps have been declared previous in this project, "Django Storages" will need to be declared under INSTALLED_APPS. Following this I need to add a parameter to the bottom of my code so it lets AWS know it can cache my static files. See example code below...
-~~~
+
+~~~bash
 AWS_S3_OBJECT_PARAMETERS = {
     'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
     'CacheControl': 'max-age=94608000'
 }
-~~~ 
-I then need to add the details of the AWS Bucket that I am trying to connect to for my static files.
 ~~~
+
+I then need to add the details of the AWS Bucket that I am trying to connect to for my static files.
+
+~~~bash
 AWS_STORAGE_BUCKET_NAME = 'sps-design-services'
 AWS_S3_REGION_NAME = 'eu-west-2'
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_SECRET_KEY_ID")
@@ -298,13 +306,14 @@ AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
 
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 ~~~
-    - Adding AWS credentials - The code above is asking for the AWS variables in the "env.py" file. At the moment we haven't actually put them in there, so I need to open the "credentials.csv" file I downloaded earlier and copy and paste in my variables. As we have deployed this project to Heroku, I also need to add these key variables to heroku the same way as I did the others. To check its wired up correctly, I have ran the command in the terminal window...
-    ~~~
-    python3 manage.py collectstatic
-    ~~~    
-    Now this is uploading all the current static files to the S3 bucket. To check whether the project is pulling the static files from the bucket. I can run the server and open developer tools, if I inspect any element that I have styled on the page and click the link( for example "custom.css"), it should show me the link to the file goes to my S3 Bucket, Success!
-    
 
+- Adding AWS credentials - The code above is asking for the AWS variables in the "env.py" file. At the moment we haven't actually put them in there, so I need to open the "credentials.csv" file I downloaded earlier and copy and paste in my variables. As we have deployed this project to Heroku, I also need to add these key variables to heroku the same way as I did the others. To check its wired up correctly, I have ran the command in the terminal window...
+
+    ~~~bash
+    python3 manage.py collectstatic
+    ~~~
+
+Now this is uploading all the current static files to the S3 bucket. To check whether the project is pulling the static files from the bucket. I can run the server and open developer tools, if I inspect any element that I have styled on the page and click the link( for example "custom.css"), it should show me the link to the file goes to my S3 Bucket, Success!
 
 ## Special Thanks & Inspiration
 
