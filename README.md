@@ -6,7 +6,6 @@ This project I am combining all the knowledge I have gained from this course to 
 
 [![Build Status](https://travis-ci.com/sps992/sps-design-services.svg?branch=master)](https://travis-ci.com/sps992/sps-design-services)
 
-[Live Heroku link here](#/ "Live Heroku link here" )
 [Live Heroku link here](https://sps-design-services.herokuapp.com/ "Live Heroku link here" ) 
 
 ![SPS logo](support-docs/images/sps-design-services.jpg)
@@ -121,6 +120,7 @@ This is the flowchart I used to plan my database structure. This differed from t
 
 
 ### Implemented Features
+
 The site currently has the following features:
 * To register an account connected to an email or username.
 * To send a password reminder to a registered user.
@@ -129,34 +129,56 @@ The site currently has the following features:
 * Services with nicely presented tabs to cycle through the different plans in that category.
 
 #### Future Features
+
 - I would like to add the feature which I featured on the user profile page, which is the ability to see active subscriptions to services the user has paid for and a expiry date for repeat billing. I added a coming soon page filler to gauge an idea of the space if I ever get the time to launch this app into the real world. 
 - I also like the idea of adding the abillity of adding a user profile photo and having a thumbnail that would act as a default if they didn't open load one. In a similar way a social media platform has one.
 
 ![User Profile](support-docs/images/user-profile.png)
+
 ## Testing
 
 **Add Functionality**
+
 I have tested forms throughly on the front-end. I did this by initially trying to get the form to send without filling any data in and checking that it flags that the required criteria is not met. I then began a series of tests by putting data in the first input field and trying to send, checking that it still flags the required criteria and then continue to do this with all the fields until all the requirements have been met. I also double-checked that the form sends when all required criteria has been submitted and that the data from the form is being sent correctly to its destination. An example of where I have done this specifically is the contact form on the contact.html page. I used [Emailjs](https://www.emailjs.com/ "Emailjs" ) javascript library to manage my submissions and I used custom javascript to link it to my project. I sent multiple tests to my personal gmail account to makesure that it was sending properly. See submission example below...
 
 ![Development server prompt](support-docs/images/development-server-prompt.png)
 
 **Edit Functionality**
+
 Once you have logged into the admin area, there is the option to edit services( if you have the correct user role privileges, if not it will simply refuse the user entry), I have tested this by adjusting the values in each input box provided and checking the front end for the corresponding content change. Due to correct coding for the models this did not incur any errors whilst testing. But I did add a blank box on some of the input fields, which added flexibility when aservice did not require that field to be displayed without having the statement "None" being presented on services without the field defined.
 
 **Delete Functionality**
+
 I tested the delte function much like the *edit* function, as I would also need to navigate to the admin area and select to edit a serivce or available model. However when I tried this originally I did discover the way foreign keys operate under certain "collapse" attributes, as when I deleted a service category originally, it would delete all the product assigned to it. Which was a huge design flaw, I then developed my database structure further using flowcharts. This resulted in me changing the foreign keys to be in the service model and linking from there to the other two models.
 
 ### Validators
 
+I ran the following linters to validate my code and make it squeaky clean!
 
-#### Compatibility
+**Html**
 
-#### Found Bugs and Fixes
+I used the Nu Html Checker to validate my code and open my eyes to any issues that I may have missed. Originally it flagged two errors, one script tag where I accidentally had specified a "type" which was not needed and the other was nesting divs inside an unordered list, not sure why I did that. I reckon I must have been tired, ha!
 
+![Nu Html Checker](support-docs/images/nu-html-checker.png)
+
+**CSS**
+
+I used the W3C CSS Validator to validate my CSS, I had two errors originally which was an invalid "speak" value and a depreciated term in my bootstrap.css file (max-device-width)which I updated and checked to makesure it was still working.
+
+![Nu CSS Checker](support-docs/images/w3c-css-validator.png)
+
+**JS**
+
+I used JSHint to validate my javascript code and it only flagged a couple of undefined function errors, however this is because it relates to a stylesheet from the Emailjs site which I do not have access to. 
+
+**Python**
+
+I installed [autopep8](https://pypi.org/project/autopep8 "autopep8" )  to tidy up my unruly code and make it more readable. I favoured this over my old technique of using an online linter as it is much quicker and more efficient.
 
 ## Deployment
 
 **Local Deployment**
+
 I deployed my project using Gitpod IDE and Github, so I will demonstrate how to deploy locally using the same method. If you are using a local code editor like VScode please check you have all the prerequisites for version control, Python and the correct version of Django installed. Please also refer to my requirements.txt file if you need to check any dependents prior to pulling the repo from Github. Please also change the name if you are forking, as this is used actively on my personal and freelance development career. Thank you!
 Please follow the following steps carefully:
 
@@ -181,6 +203,7 @@ os.environ.setdefault('SECRET_KEY', "[YOUR KEY HERE]")
 ![Local Running Server](support-docs/images/development-server-prompt.png)
 
 **Remote Deployment**
+
 These are the steps I took to deploy my project to Heroku using Heroku's "Hobby Dev" free PostgresSQL database.
 
 1. Create app in Heroku - First things first, I need to create a new app in my Heroku account. This is where my project will eventually be hosted on. Once I have created my app I need to navigate to the "Resources" tab. When my project is deployed it is going to need a database, so scroll down the page and start typing in "Postgres", you should now see "Heroku Postgres" in the dropdown. Click it and select the plan name "Hobby Dev - Free", this will be the new database when deployed. Navigate now to the settings tab and click "Reveal Config Vars", this should reveal an input box with your PostgreSQL database url in it. Copy the details and update the "env.py" file. Also this is a good time to copy your other secret keys from "env.py" and stick them in the boxes, using the same format as the database_url. This needs to be done as the "env.py" file does not get deployed to Heroku( as its in my .gitignore file).
@@ -281,20 +304,14 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
     ~~~    
     Now this is uploading all the current static files to the S3 bucket. To check whether the project is pulling the static files from the bucket. I can run the server and open developer tools, if I inspect any element that I have styled on the page and click the link( for example "custom.css"), it should show me the link to the file goes to my S3 Bucket, Success!
     
-## Copyrights
-
-### Media
 
 
-### Content
+## Special Thanks & Inspiration
 
-
-### Special Thanks & Inspiration
-
-#### Inspiration
+### Inspiration
 
 I took my inspiration for my initial design layout for service tabs from [Fiverr website](https://www.fiverr.com/ "Fiverr website" ), however I do feel now I have had the time to tweak them, that my design is marginally better.
 
-#### Special Thanks
+### Special Thanks
 
 I would like to thank my peers in Slack for giving me guidance and helping me to solve some of the more advanced features and get over some difficult hurdles. I would also like to give a big thank you to the CI support team as their help has got me out of some pretty tough spots too, and they are seem to be a pretty great bunch! Lastly but not leastly an enormous thank you to my girlfriend for not killing me whilst I grump around the house frustrated that my code wont work or the long days and nights spent at my desk coding away!
