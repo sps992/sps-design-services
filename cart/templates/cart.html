@@ -3,7 +3,6 @@
 {% load bootstrap_tags %}
 {% block content %}
 <div class="container">
-<div class="row">
 <h1>Your Cart</h1>
     {% for item in cart_items %}
     
@@ -16,31 +15,29 @@
             <p class="lead">{{ item.service.category }}</p>
             <p class="product-description">{{ item.service.description }}</p>
             <p>{{ item.service.price }}</p>
-            <p>
-                
-                <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label for="exampleInputAmount" class="sr-only">New Qty</label>
-                        <div class="input-group">
-                            <div class="input-group-addon">Qty</div>
-                            <input name="quantity" type="number" min="0" max="999" class="form-control" required>
-                            <div class="input-group-addon">{{item.quantity}}</div>
-                        </div>
+            <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="exampleInputAmount" class="sr-only">New Qty</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">Qty</div>
+                        <input name="quantity" type="number" min="0" max="999" class="form-control" required>
+                        <div class="input-group-addon">{{item.quantity}}</div>
                     </div>
-                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Amend</button>
-                </form>
-            </p>
+                </div>
+                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Amend</button>
+            </form>
+            
         </div>
         </div>
     </div>
     {% endfor %}
-    </div>
+    
     <div class="col-12 panel panel-default">
-    <div class="container">
-    <p class="col-6">Total</p>
-    <p>&pound;{{ total }}</p>
-    <button><a class="col-6" href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Checkout</a></button>
+        <div class="container">
+            <p class="col-6">Total</p>
+            <p>&pound;{{ total }}</p>
+            <button><a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Checkout</a></button>
     </div>
 </div>
 </div>
