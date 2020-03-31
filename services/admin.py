@@ -7,4 +7,3 @@ admin.site.register(Service)
 admin.site.register(ServiceCategory)
 
 admin.site.register(ServiceDetails)
-

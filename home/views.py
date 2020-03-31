@@ -22,6 +22,3 @@ def portfolio(request):
 def contact(request):
     """A view that displays my contact page."""
     return render(request, "contact.html")
-
-
-

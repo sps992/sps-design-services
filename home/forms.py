@@ -10,4 +10,3 @@ class ContactForm(forms.Form):
         required=True,
         widget=forms.Textarea
     )
-

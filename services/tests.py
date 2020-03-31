@@ -2,6 +2,8 @@ from django.test import TestCase
 from .models import Service
 
 # Create your tests here.
+
+
 class ServiceTest(TestCase):
     """
     Defining the tests that we will run

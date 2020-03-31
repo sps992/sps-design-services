@@ -21,7 +21,7 @@ class ServiceDetails(models.Model):
         ("Delivery Time: 7 Days", "7 Days"),
         ("Delivery Time: 3 Days", "3 Days"),
         (" ", " "),
-        
+
     )
     amendment_choices = (
         ("Amendments: 3", "3"),
@@ -29,13 +29,23 @@ class ServiceDetails(models.Model):
         ("Amendments: 7", "7"),
         ("Amendments: UNLIMITED", "UNLIMITED"),
         (" ", " "),
-        
+
     )
 
     title = models.CharField(max_length=254, default=' ')
     contents = models.CharField(max_length=254, default=' ')
-    delivery_time = models.CharField(choices=delivery_time_choices, default='', max_length=254, blank=True, null=True)
-    amendments = models.CharField(choices=amendment_choices, default='', max_length=254, blank=True, null=True)
+    delivery_time = models.CharField(
+        choices=delivery_time_choices,
+        default='',
+        max_length=254,
+        blank=True,
+        null=True)
+    amendments = models.CharField(
+        choices=amendment_choices,
+        default='',
+        max_length=254,
+        blank=True,
+        null=True)
     description = models.TextField(default='')
 
     def __str__(self):
@@ -55,6 +65,6 @@ class Service(models.Model):
                                 null=True,
                                 blank=True,
                                 on_delete=models.SET_NULL)
-                                
+
     def __str__(self):
         return self.name

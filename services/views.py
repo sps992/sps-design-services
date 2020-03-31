@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Service, ServiceDetails, ServiceCategory
+from .models import Service
 
 
 # Create your views here.
 def all_services(request):
-    #services = Service.objects.filter(category__category_name='Basic')
-    services = Service.objects.filter(category__category_name__icontains='Basic')
+    services = Service.objects.filter(
+        category__category_name__icontains='Basic')
     return render(request, "services.html", {"services": services})
 
 
