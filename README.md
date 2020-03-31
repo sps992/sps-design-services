@@ -135,9 +135,7 @@ The site currently has the following features:
 
 ## Testing
 
-**Add Functionality** - I have tested forms throughly on the front-end. I did this by initially trying to get the form to send without filling any data in and checking that it flags that the required criteria is not met. I then began a series of tests by putting data in the first input field and trying to send, checking that it still flags the required criteria and then continue to do this with all the fields until all the requirements have been met. I also double-checked that the form sends when all required criteria has been submitted and that the data from the form is being sent correctly to its destination. An example of where I have done this specifically is the contact form on the contact.html page. I used [Emailjs](https://www.emailjs.com/ "Emailjs" ) javascript library to manage my submissions and I used custom javascript to link it to my project. I sent multiple tests to my personal gmail account to makesure that it was sending properly. See submission example below...
-
-![Development server prompt](support-docs/images/development-server-prompt.png)
+**Add Functionality** - I have tested forms throughly on the front-end. I did this by initially trying to get the form to send without filling any data in and checking that it flags that the required criteria is not met. I then began a series of tests by putting data in the first input field and trying to send, checking that it still flags the required criteria and then continue to do this with all the fields until all the requirements have been met. I also double-checked that the form sends when all required criteria has been submitted and that the data from the form is being sent correctly to its destination. An example of where I have done this specifically is the contact form on the contact.html page. I used [Emailjs](https://www.emailjs.com/ "Emailjs" ) javascript library to manage my submissions and I used custom javascript to link it to my project. I sent multiple tests to my personal gmail account to makesure that it was sending properly. 
 
 **Edit Functionality** - Once you have logged into the admin area, there is the option to edit services( if you have the correct user role privileges, if not it will simply refuse the user entry), I have tested this by adjusting the values in each input box provided and checking the front end for the corresponding content change. Due to correct coding for the models this did not incur any errors whilst testing. But I did add a blank box on some of the input fields, which added flexibility when aservice did not require that field to be displayed without having the statement "None" being presented on services without the field defined.
 
@@ -158,6 +156,12 @@ I ran the following linters to validate my code and make it squeaky clean!
 **JS** - I used JSHint to validate my javascript code and it only flagged a couple of undefined function errors, however this is because it relates to a stylesheet from the Emailjs site which I do not have access to.
 
 **Python** - I installed [autopep8](https://pypi.org/project/autopep8 "autopep8" )  to tidy up my unruly code and make it more readable. I favoured this over my old technique of using an online linter as it is much quicker and more efficient.
+
+**Markdown** - I used a fantastic markdown extension in VScode to validate my README.md file called  [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint "markdownlint" )... I know creative right! Well what it lacking in creativity, it made up for in function and it simply just highlighted the errors with links for documentation for the correct syntax. Perfect.
+
+### Compatibility
+
+I ran my deployed app on Heroku through a site called [lambdatest](https://lambdatest.com/ "lambdatest" ), which tested my app extensively through a number of browsers and responsive tests that madesure it worked well across the board. 
 
 ## Deployment
 
