@@ -24,10 +24,10 @@ class ServiceDetails(models.Model):
         
     )
     amendment_choices = (
-        ("Amemdments: 3", "3"),
-        ("Amemdments: 5", "5"),
-        ("Amemdments: 7", "7"),
-        ("Amemdments: UNLIMITED", "UNLIMITED"),
+        ("Amendments: 3", "3"),
+        ("Amendments: 5", "5"),
+        ("Amendments: 7", "7"),
+        ("Amendments: UNLIMITED", "UNLIMITED"),
         (" ", " "),
         
     )
