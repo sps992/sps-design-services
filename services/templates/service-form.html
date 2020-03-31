@@ -6,8 +6,6 @@
 
 	<div class="col-12">
 		<h1>Our Plans</h1>
-		<p class="lead">Please login or register an account to order.</p>
-
 		<ul class="nav nav-tabs">
 			{% for service in services %}
             
@@ -36,11 +34,21 @@
                     {% csrf_token %}
                     <div class="form-group">
                         <p><strong>Price &pound;{{ service.base_price }}</strong></p>
-                    </div>
+                    </div> 
+                    {% if user.is_authenticated %}
                     <div class="input-group">
                         <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity" required>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
+                     {%  else %}
+                    
+                     <div>
+                      <h4>Want to kick this relationship up a notch?</h4>
+                      <p>Log in or register an account to order</p>
+                    <a class="btn btn-default" href="{% url 'register' %}">Register</a>
+                     <a class="btn btn-primary" href="{% url 'login' %}">Log In</a>
+                    </div>
+                     {% endif %}
                 </form>
             </div>
             {% endfor %}
