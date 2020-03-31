@@ -24,8 +24,4 @@ contact.submit(function(event){
   
 });
 
-function formTidy() {
-            document.contact-form.submit();
-            document.contact-form.reset();
-            }
 
