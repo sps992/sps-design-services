@@ -259,7 +259,7 @@ Once I have setup an account I need to navigate to the Amazon S3 service and cli
 
     - Bucket configuration - Moving on, I need to configure my Bucket Policy, to do this I need to fill in the following default code into the empty box and press save( in the live version I have changed my ARN into the one displayed inside the dashboard)...
 
-~~~bash
+~~~html
 {
     "Version": "2012-10-17",
     "Statement": [
