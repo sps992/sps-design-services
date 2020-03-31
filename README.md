@@ -9,7 +9,6 @@ This project I am combining all the knowledge I have gained from this course to 
 [Live Heroku link here](https://sps-design-services.herokuapp.com/ "Live Heroku link here" ) 
 
 ![SPS logo](support-docs/images/sps-design-services.jpg)
-[ INSERT RESPONSIVE IMAGE ]
 
 ## User Experience / UX
 
